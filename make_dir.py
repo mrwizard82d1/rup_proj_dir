@@ -1,4 +1,5 @@
 #! /bin/env python
+
 #
 # Python script to create the product directory recommended by
 # Rational Software.
@@ -6,8 +7,6 @@
 
 
 import os
-import sys
-import types
 
 
 def make_product_dir():
@@ -19,9 +18,9 @@ def make_product_dir():
     try:
         os.makedirs(root)
 
-        businessModeling = os.path.join(root, 'bus_modeling')
-        os.makedirs(businessModeling)
-        os.makedirs(os.path.join(businessModeling, 'models'))
+        business_modeling = os.path.join(root, 'bus_modeling')
+        os.makedirs(business_modeling)
+        os.makedirs(os.path.join(business_modeling, 'models'))
 
         deployment = os.path.join(root, 'deployment')
         os.makedirs(deployment)
@@ -43,13 +42,13 @@ def make_product_dir():
         os.makedirs(os.path.join(meetings, 'minutes'))
         os.makedirs(os.path.join(meetings, 'presentations'))
 
-        projectMgt = os.path.join(root, 'proj_mgt')
-        os.makedirs(projectMgt)
-        os.makedirs(os.path.join(projectMgt, 'assessment'))
-        os.makedirs(os.path.join(projectMgt, 'budget_billing'))
-        os.makedirs(os.path.join(projectMgt, 'documents'))
-        os.makedirs(os.path.join(projectMgt, 'plans'))
-        os.makedirs(os.path.join(projectMgt, 'status'))
+        project_mgt = os.path.join(root, 'proj_mgt')
+        os.makedirs(project_mgt)
+        os.makedirs(os.path.join(project_mgt, 'assessment'))
+        os.makedirs(os.path.join(project_mgt, 'budget_billing'))
+        os.makedirs(os.path.join(project_mgt, 'documents'))
+        os.makedirs(os.path.join(project_mgt, 'plans'))
+        os.makedirs(os.path.join(project_mgt, 'status'))
         
         requirements = os.path.join(root, 'requirements')
         os.makedirs(requirements)
@@ -58,8 +57,8 @@ def make_product_dir():
         os.makedirs(os.path.join(requirements, 'models'))
         os.makedirs(os.path.join(requirements, 'reports'))
 
-        rAndD = os.path.join(root, 'r_and_d')
-        os.makedirs(rAndD)
+        r_and_d = os.path.join(root, 'r_and_d')
+        os.makedirs(r_and_d)
 
         stds = os.path.join(root, 'stds_guidelines')
         os.makedirs(stds)
@@ -71,8 +70,8 @@ def make_product_dir():
         test = os.path.join(root, 'test')
         os.makedirs(test)
         
-        thirdParty = os.path.join(root, 'third_party_sware')
-        os.makedirs(thirdParty)
+        third_party = os.path.join(root, 'third_party_software')
+        os.makedirs(third_party)
 
         tools = os.path.join(root, 'tools')
         os.makedirs(tools)
@@ -80,17 +79,15 @@ def make_product_dir():
         os.makedirs(os.path.join(tools, 'dev_env'))
         os.makedirs(os.path.join(tools, 'req_mgt'))
         os.makedirs(os.path.join(tools, 'test'))
-        os.makedirs(os.path.join(tools, 'visual_mdling'))
+        os.makedirs(os.path.join(tools, 'visual_modeling'))
         
     except OSError as ose:
-        print("OSError(%s): %s" % (ose.errno, ose.strerror), end=' ')
-        if (ose.filename != None):
-            print("%s" % (ose.filename))
+        print(f"OSError({ose.errno}): {ose.strerror}", end=' ')
+        if ose.filename is not None:
+            print(f"{ose.filename}")
         else:
             print()
-    except:
-        print("Unexpected error:", sys.exc_info()[0])
-        raise
-    
+
+
 if __name__ == '__main__':
     make_product_dir()
