@@ -82,14 +82,14 @@ def make_product_dir():
         os.makedirs(os.path.join(tools, 'test'))
         os.makedirs(os.path.join(tools, 'visual_mdling'))
         
-    except OSError, ose:
-        print "OSError(%s): %s" % (ose.errno, ose.strerror),
+    except OSError as ose:
+        print("OSError(%s): %s" % (ose.errno, ose.strerror), end=' ')
         if (ose.filename != None):
-            print "%s" % (ose.filename)
+            print("%s" % (ose.filename))
         else:
-            print
+            print()
     except:
-        print "Unexpected error:", sys.exc_info()[0]
+        print("Unexpected error:", sys.exc_info()[0])
         raise
     
 if __name__ == '__main__':
