@@ -6,15 +6,16 @@
 #
 
 
+import argparse
 import os
 
 
-def make_product_dir():
+def make_product_dir(target_dir):
     """
-    Make the Rational-recommended product directory in the current
+    Create a directory named `target_dir` containing the Rational-recommended product directory in the current
     working directory.
     """
-    root = os.path.join('.', 'product_dir')
+    root = os.path.join('.', target_dir)
     try:
         os.makedirs(root)
 
@@ -90,4 +91,7 @@ def make_product_dir():
 
 
 if __name__ == '__main__':
-    make_product_dir()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('target_dir', help='Name of project directory to create')
+    args = parser.parse_args()
+    make_product_dir(args.target_dir)
